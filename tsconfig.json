@@ -21,7 +21,7 @@
       "@config/*": ["./src/config/*"],
       "@lib/*": ["./src/lib/*"],
       "@shared/*": ["./src/shared/*"],
-      "@modules/*": ["./src/modules"]
+      "@modules/*": ["./src/modules/*"]
     }
   },
   "exclude": ["node_modules"]
