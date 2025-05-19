@@ -1,3 +1,4 @@
+import { ValidationPipe } from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'
 import { AppModule } from './modules/core/app.module'
 
@@ -6,8 +7,14 @@ async function bootstrap() {
 
   const PORT = process.env.PORT ?? 8000
 
+  app.useGlobalPipes(
+    new ValidationPipe({
+      transform: true,
+    }),
+  )
+
   await app.listen(PORT)
-  console.log(`\n\n Server is running on http://localhost:${PORT}\n\n`)
+  console.log(`\n\n Server running on http://localhost:${PORT}\n\n`)
 }
 /* eslint-disable @typescript-eslint/no-floating-promises */
 bootstrap()
