@@ -20,9 +20,6 @@ export class Category {
   @Column({ type: 'text', nullable: true })
   description?: string
 
-  @Column({ type: 'varchar', length: 255, unique: true })
-  slug: string
-
   @Column({ type: 'boolean', default: true })
   isActive: boolean
 

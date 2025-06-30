@@ -13,7 +13,12 @@ export class ProductRepository {
   ) {}
 
   async create(productData: CreateProductDto): Promise<Product> {
-    const product = this.repository.create(productData)
+    const { categoryId, ...restProductData } = productData
+    const product = this.repository.create({
+      ...restProductData,
+      category: { id: categoryId },
+    })
+
     return await this.repository.save(product)
   }
 
