@@ -7,8 +7,10 @@ import {
   ManyToOne,
   JoinColumn,
   Relation,
+  OneToMany,
 } from 'typeorm'
 import { Category } from './category.entity'
+import { OrderItem } from '@modules/order'
 
 @Entity()
 export class Product {
@@ -30,6 +32,9 @@ export class Product {
 
   @Column({ type: 'boolean', default: true })
   available: boolean
+
+  @OneToMany('OrderItem', 'orderItem.product')
+  orderItems: Relation<OrderItem[]>
 
   @CreateDateColumn()
   createdAt: Date
