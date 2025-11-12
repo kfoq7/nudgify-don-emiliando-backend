@@ -6,6 +6,6 @@ import { UserModule } from '@modules/user/user.module'
 import { ProductModule } from '@modules/product/product.module'
 
 @Module({
-  imports: [envConfig(), typeOrmModule(), UserModule, ProductModule],
+  imports: [typeOrmModule(), envConfig(), UserModule, ProductModule],
 })
 export class AppModule {}
